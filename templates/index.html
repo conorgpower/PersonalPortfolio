@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {{ fontawesome_html() }}
     <title>Conor Power</title>
-    <link rel="icon" href="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/logo.png?raw=true">
+    <link rel="icon" href="/static/images/logo.png">
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Include Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <!-- Include Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/mystyle.css') }}">
 </head>
 
 
@@ -18,36 +23,32 @@
     </nav>
 
     <!-- Landing Page -->
-    <div class="bg-image" style="background-image: url('https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/background.jpeg?raw=true'); width: 100%; height: 95vh; background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <div class="bg-image">
         <div class="container h-100">
             <div class="row align-items-center h-100">
-                <div class="col-8 mx-auto">
-                    <h1 class="text-center" style="color: #fff;  font-size: 60px" >
+                <div class="col mx-auto text-center" color="white" style="color: #fff;">
+                    <h1>
                         Conor Power
                     </h1>
-                    <h2 class="text-center" style="color: #fff; font-weight: 300;  margin-bottom: 30px;" >
-                        Data Scientist, Machine Learning Engineer and Project Manager
-                    </h2>
-                    <button class="btn btn-default">
-                        <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/facebook.png?raw=true" color="white" alt="Facebook" width="35px"/>
-                    </button>
-                    <button class="btn btn-default" href="https://twitter.com/connie_peeee">
-                        <a href="https://twitter.com/connie_peeee"></a>
-                        <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/twitter.png?raw=true" color="white" alt="Facebook" width="35px"/>
-                    </button>
-                    <button class="btn btn-default">
-                        <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/instagram.png?raw=true" color="white" alt="Facebook" width="35px"/>
-                    </button>
-                    <button class="btn btn-default">
-                        <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/linkedin.png?raw=true" color="white" alt="Facebook" width="35px"/>
-                    </button>
-                    <button class="btn btn-default">
-                        <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/github.png?raw=true" color="white" alt="Facebook" width="35px"/>
-                    </button>
-                    <button class="btn btn-default">
-                        <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/certificates.png?raw=true" color="white" alt="Facebook" width="35px"/>
-                    </button>
-                    <p class="text-center" style="color: #fff; font-size: 30px; font-style: oblique; font-weight: 300; margin-top: 30px;">
+                    <h3>
+                        Data Scientist, Machine Learning Engineer and Data Product Manager
+                    </h3>
+                    <a href="https://www.linkedin.com/in/conor-power-229886130/" target="_blank">
+                        <button class="btn btn-default">
+                            <img id="social" src="/static/images/linkedin.png" alt="LinkedIn" width="35px"/>
+                        </button>
+                    </a>
+                    <a href="https://github.com/conorgpower/" target="_blank">
+                        <button class="btn btn-default">
+                            <img id="social" src="/static/images/github.png" alt="LinkedIn" width="35px"/>
+                        </button>
+                    </a>
+                    <!-- <a href="#">
+                        <button class="btn btn-default">
+                            <img id="social" src="/static/images/certificates.png" alt="LinkedIn" width="35px"/>
+                        </button>
+                    </a> -->
+                    <p id="quote">
                         Predicting the future isn't magic, it's artificial intelligence.
                     </p>
                 </div>
@@ -57,22 +58,451 @@
 
 
     <!-- About Page -->
-    <div class="container" style="min-width: 100vw; min-height: 100vh; background-color: #007bff">
-        <div class="row justify-content-center">
-            <div class="col-5 text-center">
-                <img src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/conor.jpg?raw=true">
+    <section id="about" class="about d-flex text-center align-items-center">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-5">
+                <img id="conor" src="https://github.com/conorgpower/personal_portfolio/blob/main/assets/images/conor.jpg?raw=true" style="width: 100%">
             </div>
-            <div class="col-5 text-left" style="color: #fff;">
-                <h2>About</h2>
-                <p style="text-align: justify;">
-                    Conor Power is a Data Scientist and Data Product Manager with experience in identifying, 
-                    designing, and implementing Data Science, Analyitics, and Artificial Intelligence projects 
-                    across the automotive, finacial and agricultural industries. He has experience helping
+            <div class="col-5" style="color: #fff;">
+                <h2 style="text-align: left;">About</h2>
+                <p>
+                    Conor Power is a Data Scientist, Machine Learning Engineer and Data Product Manager with 
+                    experience in identifying, designing, and implementing Data Science, Analyitics, and
+                    Artificial Intelligence projects across the automotive, advertising and agricultural industries.
+                    <br>
+                    <br>
+                    He has experience helping
                     startups and established companies leverage AI to build intelligent solutions to the leading
                     problems in their industries. He is also involved in the programming community and has 
-                    volunteered to teach coding to kids as a part of the Coder Dojo.
+                    volunteered to teach coding to young aspiring coders as a part of the Coder Dojo.
                 </p>
             </div>
         </div>
-    </div>
+    </section>
+
+
+    <!-- Experience Page -->
+    <section id="experience">
+        <div class="container text-center">
+            <h1 class="section-title">Experience</h1>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fas fa-car"></i>
+                            <h4 class="card-title">AlgoDriven</h4>
+                            <p class="card-subtitle mb-2">
+                                <strong>Data Scientist</strong>
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                Dubai, United Arab Emirates
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                January, 2021 - Present
+                            </p>
+                            <hr>
+                            <p class="card-text">
+                                Lead designing, development and optimization of vehicle price prediction and forecast algorithms and models.
+                            </p>
+                            <p class="card-text">
+                                Take ownership of AI model design direction and engineering.
+                            </p>
+                            <p class="card-text">
+                                Lead data science and AI projects that translate to direct business outcomes for the company and its clients.
+                            </p>
+                            <p class="card-text">
+                                Lead the development of damage detection, classification, and estimate systems.
+                            </p>
+                            <p class="card-text">
+                                Drive additional insights and understandings from core algorithms and models.
+                            </p>
+                            <p class="card-text">
+                                Adapt existing models to scale across new markets.
+                            </p>
+                            <p class="card-text">
+                                Gather, scrape, clean and explore data to prepare for model training.
+                            </p>
+                            <p class="card-text">
+                                Set up best practices and processes for fast and efficient development and delivery.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fas fa-building"></i>
+                            <h4 class="card-title">Kx Systems</h4>
+                            <h6 class="card-title">A Subsidiary of First Derivatives</h6>
+                            <p class="card-subtitle mb-2">
+                                <strong>Data Science Consultant</strong>
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                Newry, Northern Ireland
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                May, 2020 - December, 2020
+                            </p>
+                            <hr>
+                            <p class="card-text">
+                                Designed and developed a tool for fraud and anomoly detection in advertising data.
+                            </p>
+                            <p class="card-text">
+                                Optimize existing model to identify inefficiencies in the utilisation of advertising budgets.
+                            </p>
+                            <p class="card-text">
+                                Maintanance, design and querying of databases using SQL.
+                            </p>
+                            <p class="card-text">
+                                Automating the screening of clients for financial services products such as loans, mortgages and credit cards.
+                            </p>
+                            <p class="card-text">
+                                Recieved extensive internal trading in Data Science and Finance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fas fa-car"></i>
+                            <h4 class="card-title">Uber</h4>
+                            <p class="card-subtitle mb-2">
+                                <strong>Software Engineer Intern</strong>
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                Waterford, Ireland
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                January, 2019 - September 2019
+                            </p>
+                            <hr>
+                            <p class="card-text">
+                                Lead the design and buiding of an internal operations portal to automate solving of common issues.
+                            </p>
+                            <p class="card-text">
+                                Develop multiple useful APIs that made the building blocks of more complex functions.
+                            </p>
+                            <p class="card-text">
+                                Fix front end bugs and work with UX/UI team to improve the user experience across all products.
+                            </p>
+                            <p class="card-text">
+                                Implement code fixes on existing features and review other developers' code before merging into production.
+                            </p>
+                            <p class="card-text">
+                                Write, test and document multiple API endpoints for payment services.
+                            </p>
+                            <p class="card-text">
+                                Assist in maintaining best practices for Agile development across the team.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Skills Page -->
+    <section id="skills">
+        <div class="container text-center">
+            <h1 class="section-title">Skills</h1>
+            <div class="row">
+                <div class="col-md">
+                    <div class="card">
+                        <div class="card-body">
+                            <i id="card-icon" class="fa fa-industry"></i>
+                            <h4 class="card-title">Industries</h4>
+                            <hr>
+                            <table class="table table-bordedless table-hover text-left">
+                                <tr class="border-bottom">
+                                    <td>
+                                        <span class="badge">Automotive</span>
+                                    </td>
+                                    <td>
+                                        Experience in developing AI systems related to pricing, 
+                                        inspection, valuation, and damage detection.
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        <span class="badge">Advertising</span>
+                                    </td>
+                                    <td>
+                                        Experience developing AI systems related to detecting 
+                                        fraudulent advertising metrics and optimal deployment
+                                        of ad budget.
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        <span class="badge">Agriculture</span>
+                                    </td>
+                                    <td>
+                                        Experience creating AI & hardware projects to reduce waste in 
+                                        a greenhouse setting.
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td>
+                                        <span class="badge">Startup Ecosystem</span>
+                                    </td>
+                                    <td>
+                                        Experience working with startups to utilize their data 
+                                        through AI and take products from idea to market ready product.
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fa fa-flask"></i>
+                            <h4 class="card-title">Specializations</h4>
+                            <hr>
+                            <p>Feature Engineering</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>Data Science</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>ML Ops</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Deep Learning</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Machine Learning</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Data Engineering</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>Data Analyitics</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fa fa-database"></i>
+                            <h4 class="card-title">Data Science</h4>
+                            <hr>
+                            <p>Pandas</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>Scikit Learn</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>NumPy</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>Catboost</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Tensorflow</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Pytorch</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>XGBoost</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>SARIMAX</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯ ◯</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fa fa-code"></i>
+                            <h4 class="card-title">Development</h4>
+                            <hr>
+                            <p>Python</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>Cloud Development (AWS)</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>SQL</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>Flask/Bootstrap Applications</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Docker</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>DevOps</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>JavaScript / Node.js</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯ ◯</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-md-center" style="margin-top: 3em;">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fa fa-microchip"></i>
+                            <h4 class="card-title">Hardware</h4>
+                            <hr>
+                            <p>Internet of Things</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>Raspberry Pi</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>Arduino</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>FPGA</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯ ◯</span>
+                            <p>Assembly</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯ ◯ ◯</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fa fa-users"></i>
+                            <h4 class="card-title">Soft Skills</h4>
+                            <hr>
+                            <p>Word / PowerPoint / Excel</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯</span>
+                            <p>Project Management (Agile)</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Software Design</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯</span>
+                            <p>Presentation</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>Team Leadership</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>Client Consulation</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯</span>
+                            <p>UI/UX Design</p>
+                            <span>◉ ◉ ◉ ◉ ◉ ◉ ◯ ◯ ◯ ◯</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Education Page -->
+    <section id="education">
+        <div class="container text-center">
+            <h1 class="section-title">Education</h1>
+            <div class="row  justify-content-md-center">
+                <div class="col-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fas fa-graduation-cap"></i>
+                            <h4 class="card-title">South East Technological University</h4>
+                            <p class="card-subtitle mb-2">
+                                <strong>BSc (Hons) in Applied Compiting</strong>
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                Waterford, Ireland
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                September, 2016 - May, 2020
+                            </p>
+                            <hr>
+                            <p class="card-text">
+                                Graduated with 1.1 First Class Honours
+                            </p>
+                            <p class="card-text">
+                                Class Representitive for Years 3 & 4 
+                            </p>
+                            <p class="card-text">
+                                Recieved SunLife Innovation Award for Final Year Project in Machine Learning
+                            </p>
+                            <p class="card-text">
+                                Studied a variety of computer science subjects providing a strong base in all areas of computing.
+                            </p>
+                            <p class="card-text">
+                                Active member of the Technology Society and paricipated many code sprint meetups.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <i id="card-icon" class="fas fa-book"></i>
+                            <h4 class="card-title">CBS Seconday School</h4>
+                            <p class="card-subtitle mb-2">
+                                <strong>Leaving Certificate</strong>
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                Tipperary, Ireland
+                            </p>
+                            <p class="card-subtitle text-muted">
+                                September, 2010 - June, 2016
+                            </p>
+                            <hr>
+                            <p class="card-text">
+                                Graduated with 475 points
+                            </p>
+                            <p class="card-text">
+                                Subjects:<br>
+                                Mathematics<br>
+                                English<br>
+                                Irish<br>
+                                Physics<br>
+                                Biology<br>
+                                Geography<br>
+                                LCVP
+                            </p>
+                            <p class="card-text">
+                                Silver Gaisce Award
+                            </p>
+                            <p class="card-text">
+                                Football Team
+                            </p>
+                            <p class="card-text">
+                                Student Coucil for Years 2 & 3 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Page -->
+    <section id="contact">
+        <div class="container">
+            <div class="container">
+                <h1 class="display-4 container-title">Contact</h1>
+                <div class="row more-details justify-content-md-center">
+                    <p>
+                        For more details or to request a CV, please send an email to conorgpower@gmail. You can also find Conor on the LinkedIn or GitHub.
+                    </p>
+                </div>
+                <div class="row justify-content-md-center">
+                    <div>
+                        <a href="https://www.linkedin.com/in/conor-power-229886130/" target="_blank">
+                            <button class="btn btn-default">
+                                <img id="social" src="/static/images/linkedin.png" alt="LinkedIn" width="35px"/>
+                            </button>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="https://github.com/conorgpower/" target="_blank">
+                            <button class="btn btn-default">
+                                <img id="social" src="/static/images/github.png" alt="LinkedIn" width="35px"/>
+                            </button>
+                        </a>
+                    </div>
+                    <!-- <div class="col">
+                        <a href="#">
+                            <button class="btn btn-default">
+                                <img id="social" src="/static/images/certificates.png" alt="LinkedIn" width="35px"/>
+                            </button>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Page -->
+    <section id="footer">
+        <div class="container text-center">
+            © Copyright <script>document.write(/\d{4}/.exec(Date())[0])</script> - Conor Power 
+        </div>
+    </section>
 </body>
